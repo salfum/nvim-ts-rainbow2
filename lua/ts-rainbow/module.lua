@@ -15,17 +15,17 @@
    limitations under the License.
 --]]
 
-local lib = require 'ts-rainbow.lib'
-local rb  = require 'ts-rainbow'
+local lib = require("ts-rainbow.lib")
+local rb = require("ts-rainbow")
 
 ---Module definition for the nvim-treesitter plugin.
 local M = {}
 
 ---Registers the module.
 function M.register()
-	require('nvim-treesitter').define_modules {
+	require("nvim-treesitter").define_modules({
 		rainbow = {
-			module_path = 'ts-rainbow.internal',
+			module_path = "ts-rainbow.internal",
 			is_supported = function(lang)
 				return lib.get_query(lang) ~= nil
 			end,
@@ -35,26 +35,26 @@ function M.register()
 			},
 			query = {
 				lib.query,
-				html = 'rainbow-tags',
-				latex = 'rainbow-blocks',
-				tsx = 'rainbow-tags',
+				html = "rainbow-tags",
+				latex = "rainbow-blocks",
+				tsx = "rainbow-tags",
+				elixir = "rainbow-blocks",
 			},
 			-- Highlight groups in order of display
 			hlgroups = {
 				-- The colours are intentionally not in the usual order to make
 				-- the contrast between them stronger
-				'TSRainbowRed',
-				'TSRainbowYellow',
-				'TSRainbowBlue',
-				'TSRainbowOrange',
-				'TSRainbowGreen',
-				'TSRainbowViolet',
-				'TSRainbowCyan',
+				"TSRainbowRed",
+				"TSRainbowYellow",
+				"TSRainbowBlue",
+				"TSRainbowOrange",
+				"TSRainbowGreen",
+				"TSRainbowViolet",
+				"TSRainbowCyan",
 			},
 		},
-	}
+	})
 end
-
 
 return M
 
